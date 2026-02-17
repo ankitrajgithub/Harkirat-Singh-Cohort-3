@@ -1,0 +1,22 @@
+React - React is just an easier way to write normal HTML/CSS/JS
+It’s a new syntax, that under the hood gets converted to HTML/CSS/JS
+
+Some react jargon - To create a react app, you usually need to worry about two things:-
+1. State - An object that represents the current state of the app. State is data owned by a component
+that can change over time and affects what is rendered on the screen.
+It represents the dynamic things in your app (things that change).
+When state changes, React re-renders the component.
+For example, the value of the counter.
+2. Component - How a DOM element should render, given a state.
+It is a re-usable, dynamic, HTML snippet that changes given the state.
+A component is a reusable, independent piece of the UI.
+Think of components like functions that return UI.
+
+A button is a component. It takes the state (currentCount) as an input and is supposed to
+render accordingly.
+
+A state change triggers a re-render. A re-render represents the actual DOM being manipulated 
+when the state changes.
+
+You usually have to deﬁne all your components once and then all you have to do is update the 
+state of your app, React takes care of re-rendering your app.

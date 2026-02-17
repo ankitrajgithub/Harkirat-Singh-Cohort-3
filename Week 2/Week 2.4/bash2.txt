@@ -1,0 +1,6 @@
+Bash Commands - Advanced :-
+hello 
+my name is ankit
+im cute
+are you cute??/
+

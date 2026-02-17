@@ -1,0 +1,33 @@
+Rolling up the state, unoptimal re-renders - As your application grows, you might find that multiple components need 
+access to the same state. Instead of duplicating state in each component, you can lift the state up to the LCA, allowing 
+the common ancestor to manage it.
+
+Prop drilling - **Prop drilling** occurs when you need to pass data from a higher-level component down to a lower-level 
+component that is several layers deep in the component tree. This often leads to the following issues:
+-Complexity: You may have to pass props through many intermediate components that don’t use the props themselves, 
+just to get them to the component that needs them.
+-Maintenance: It can make the code harder to maintain, as changes in the props structure require updates in multiple 
+components.
+
+The Context API is a powerful feature in React that enables you to manage state across your application more effectively, 
+especially when dealing with deeply nested components.
+The Context API provides a way to share values (state, functions, etc.) between components without having to pass props 
+down manually at every level. 
+Jargon:
+- Context: This is created using `React.createContext()`. It serves as a container for the data you want to share.
+- Provider: This component wraps part of your application and provides the context value to all its descendants. Any 
+component that is a child of this Provider can access the context.
+- Consumer: This component subscribes to context changes. It allows you to access the context value (using `useContext`  
+hook)
+
+Introducing recoil - To minimise the number of re-renders, and ensure that only components that are `subscribed` to a value 
+`render, state management was introduced.
+
+There are many libraries that let you do state management - 
+
+1. mobx
+2. recoil
+3. redux
+
+Here is a simple example with `recoil`
+- npm install recoil

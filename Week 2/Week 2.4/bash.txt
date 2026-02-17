@@ -1,0 +1,53 @@
+Bash Commands - Basics :-
+
+1. Terminal - Terminal is an interface which is used to do things on your machine.
+
+2. pwd - Present working directory.
+pwd 
+
+3. cd - Change directory
+cd Desktop
+cd ..
+cd ../..
+cd OneDrive/Desktop
+
+4. ls - Listings
+ls
+
+clear - To clear your bash terminal.
+clear
+
+5. mkdir - Make directory
+mkdir test
+mkdir test2
+
+6. touch - Create a file
+touch index.js
+touch index.txt
+
+7. cat - Print content
+cat index.txt
+
+8. vi - Let's you edit file
+vi bash.txt
+i to enter insert mode
+esc then :q! to exit 
+esc then :wq! to save and exit
+
+9. mv - Used to move file and directory from one directory to another
+mv text.txt Desktop
+mv new-folder test/test2
+
+10. cp - Used to copy file and directory.
+cp a3.js test
+cp -r test3 test2
+
+nvm - Node Version Manager
+
+node - Used to dynamically run javascript file
+node
+node index.js
+
+npm - Node Package Manager
+npm
+npm install express

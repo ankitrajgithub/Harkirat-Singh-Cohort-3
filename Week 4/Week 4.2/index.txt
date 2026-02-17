@@ -1,0 +1,43 @@
+ping google.com - To check IP address of a website.
+ping localhost
+
+sudo vi /etc/hosts - To edit IP address of a website inside your DNS. Not available in Windows.
+
+Ports - In networking, ports are logical endpoints used by protocols to identify specific processes running on a computer
+or server. They help direct network traffic to the correct application or service on a system. 
+
+CRUD Operation :-
+1. CREATE - POST Request
+2. READ - GET Request
+3. UPDATE - PUT Request
+4. DELETE - DELETE Request
+
+Default Port of :-
+1. HTTP - 80
+2. HTTPS - 443
+3. SSH - 22
+
+JSON - Javascript Objection Notation
+
+Status Codes :-
+200 - OK
+204 - Request successful, No content
+300 - Redirection
+301 - Moved Permanently
+304 - Not modified
+400 - Client Error (Bad Request)
+401 - Unauthorized
+403 - Forbidden
+404 - Not found
+500 - Internal Server Error
+502 - Bad Gateway
+
+Body - Part of the HTTP message that contains the actual data being sent to the server.
+{
+    todo:"Go to the gym"
+}
+
+Route - Path or endpoints that defines how incoming requests are handled by a server.
+https://100xdevs.com/calendar
+
+npm init -y -> Create an empty package.json

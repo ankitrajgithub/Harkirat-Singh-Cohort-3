@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hidden{
+            display: none;
+        }
+        .visible{
+            display: block;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        async function signup(){
+            const username=document.getElementById("signup-username").value;
+            const password=document.getElementById("signup-password").value;
+            await axios.post("http://localhost:3000/signup",{
+                username:username,
+                password:password
+            });
+            alert("You are signed-in "+username+" "+password);
+        }
+        async function signin(){
+            const username=document.getElementById("signin-username").value;
+            const password=document.getElementById("signin-password").value;
+            const response=await axios.post("http://localhost:3000/signin",{
+                username:username,
+                password:password
+            });
+            alert("You are logged-in");
+            localStorage.setItem("token",response.data.token);
+        }
+        async function getInfo(){
+            try{
+                const response=await axios.get("http://localhost:3000/me",{
+                    headers:{
+                        authentication:localStorage.getItem("token")
+                    }
+                })
+                document.getElementById("info").innerHTML="Username : "+response.data.username+" Password : "+response.data.password;
+            }catch(err){
+                document.getElementById("info").innerHTML="No User Found";
+            }
+            
+        }
+        async function visiblehidden(){
+            const signup=document.getElementById("signup");
+            const signin=document.getElementById("signin");
+            const userinfo=document.getElementById("userinfo");
+            const logout=document.getElementById("logout");
+            const token=localStorage.getItem("token");
+            if(!token==undefined){
+                signup.classList.add("hidden");
+                signin.classList.add("hidden");
+                userinfo.classList.remove("hidden");
+                logout.classList.remove("hidden");
+                signup.classList.remove("visible");
+                signin.classList.remove("visible");
+                userinfo.classList.add("visible");
+                logout.classList.add("visible");
+            }else{
+                signup.classList.remove("hidden");
+                signin.classList.remove("hidden");
+                userinfo.classList.add("hidden");
+                logout.classList.add("hidden");
+                signup.classList.add("visible");
+                signin.classList.add("visible");
+                userinfo.classList.remove("visible");
+                logout.classList.remove("visible");
+            }
+            getInfo();
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            visiblehidden(); 
+        });
+        async function logout(){
+            localStorage.removeItem("token");
+        }
+    </script>
+</head>
+<body>
+    <div class="visible" id="signup">
+        Sign-up
+        <br>
+        <input type="text" id="signup-username" name="username" placeholder="Type your username">
+        <br>
+        <input type="password" id="signup-password" name="password" placeholder="Type your password">
+        <br>
+        <button onclick="signup()">Submit</button>
+    </div>
+    <br>
+    <div class="visible" id="signin">
+        Sign-in
+        <br>
+        <input type="text" name="username" id="signin-username" placeholder="Type your username">
+        <br>
+        <input type="password" name="password" id="signin-password" placeholder="Type your password">
+        <br>
+        <button onclick="signin()">Submit</button>
+    </div>
+    <div class="hidden" id="userinfo">
+        User Information
+        <button onclick="getInfo()">Me</button>
+        <textarea name="info" id="info"></textarea>
+    </div>
+    <div class="hidden" id="logout">
+        Logout
+        <button onclick="logout()">Logout</button>
+    </div>
+    <div>
+        <button onclick="visiblehidden()">Check Status</button>
+    </div>
+</body>
+</html>

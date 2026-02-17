@@ -1,0 +1,61 @@
+Children - The children prop allows you to pass elements or components as props to other components.
+
+Lists & Keys - When rendering lists, each item should have a unique key prop for React to track 
+changes efficiently.
+
+Inline Styling - Inline styling in React allows you to apply CSS styles directly to elements using 
+a JavaScript object.
+function MyComponent() {
+  return (
+    <div style={{ backgroundColor: 'blue', color: 'white' }}>
+      Hello, World!
+    </div>
+  );
+}
+
+Class-Based Component - Class components are  classes that extend React.Component, while functional 
+components are simpler and can use Hooks.
+A class-based component in React is a JavaScript ES6 class that extends React.Component and includes a render() 
+method to return HTML (JSX). They were historically used for managing state and accessing lifecycle methods, but 
+modern React development now favors functional components with Hooks.
+
+Functional Component - Functional components in React are JavaScript functions that accept props as input and 
+return JSX to render UI, serving as the modern standard for building components. They are lightweight, concise, 
+and easy to test, typically using hooks like useState and useEffect to manage state and lifecycle events.
+
+Lifecycle Events - In React, lifecycle events (or lifecycle methods) refer to the specific points in a component's 
+life where you can execute code in response to changes or actions. These events help you manage tasks such as data 
+fetching, subscriptions, and cleaning up resources.
+
+Class-Based Lifecycle Methods - In class components, lifecycle methods are divided into three main phases:
+1. Mounting: When the component is being inserted into the DOM.
+    - constructor(): Called when the component is initialized.
+    - componentDidMount(): Called immediately after the component is mounted. Ideal for data fetching.
+2. Updating: When the component is being re-rendered due to changes in props or state.
+    - componentDidUpdate(prevProps, prevState): Called after the component has updated. Good for operations based 
+       on prop/state changes.
+3. Unmounting: When the component is being removed from the DOM.
+    - componentWillUnmount(): Ideal for cleanup tasks, like invalidating timers or canceling network requests.
+
+Error Boundary - Error boundaries are React components that catch JavaScript errors in their child component 
+tree and display a fallback UI.
+Error boundaries only exist in class based components.
+
+Fragment - In React, a component can return a single parent element, but it can contain multiple children 
+within that single parent.
+Wrong Code-
+const MyComponent = () => {
+    return (
+        <h1>Hello</h1>
+        <p>World</p> // This line will cause an error
+    );
+};
+Right Code-
+const MyComponent = () => {
+    return (
+        <>
+            <h1>Hello</h1>
+            <p>World</p>
+        </>
+    );
+};

@@ -1,0 +1,28 @@
+Redux is a state management library that uses a unidirectional data flow architecture centered around a 
+single store, with updates triggered by actions and processed by pure reducer functions. The react-redux 
+library provides the Provider component to make the store accessible to all React components. 
+
+Here is a breakdown of the core concepts:
+
+-State: The state is the immutable data tree (typically a plain JavaScript object) that describes the condition 
+of the application at a specific point in time. The UI is a rendering of the current state. 
+-Action: An action is a plain JavaScript object that describes what happened in the application (e.g., a 
+user clicked a "Buy" button). It must have a type field (usually a string like 'todos/todoAdded') and can 
+contain other data in a payload field.
+-Reducer: Reducers are pure functions that take the current state and an action as arguments and return a 
+new state. They specify how the state changes in response to an action, following an immutability principle 
+(they must not modify the original state directly).
+-Store: The store is the single source of truth that holds the entire global state of the application. 
+It is a JavaScript object with methods like getState(), dispatch(action), and subscribe(listener).
+-Provider: The Provider is a React component from the react-redux library that makes the Redux store available 
+to all components nested within it via the React context mechanism. You wrap your root application component 
+with the Provider, passing the store as a prop.
+
+The Redux Data Flow:
+-UI Interaction: Something happens in the UI (e.g., a user clicks a button).
+-Dispatch Action: The application code calls store.dispatch(action) to announce that an event occurred.
+-Reducer Execution: The store runs the root reducer function, passing the current state and the dispatched action. 
+The reducer calculates and returns the new state immutably.
+-Store Update: The store saves the new state.
+-UI Re-render: The store notifies all subscribed UI components that the state has been updated, triggering them 
+to re-render with the new data. 

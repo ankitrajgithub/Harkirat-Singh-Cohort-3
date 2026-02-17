@@ -1,0 +1,9 @@
+Introduction to UI/UX:
+
+User Interface (UI) - Includes visual elements such as buttons, text, images, entry fields and anything the user can/could 
+interact with.
+
+User Experience (UX) - Includes how a user interacts with and experiences a product.
+
+## Difference between User Interface (UI) and User Experience (UX)?
+UX without UI is like brain without a body & a UI without UX is like a human without it’s brain.

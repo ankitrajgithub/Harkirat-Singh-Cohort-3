@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@theme{
+    --color-red-400:blue;
+    --font-display:san-serif;   
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
